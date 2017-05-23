@@ -1,0 +1,18 @@
+<template bindable="navigation, isNavigating">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Welcome ${router}</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li  class.bind="row.isActive ? 'active' : ''" repeat.for="row of navigation">
+          <a href.bind= "row.href">${row.title}</a>
+        </li>
+      </ul>
+      <li class="loader" if.bind="isNavigating">
+           <i class="fa fa-spinner fa-spin fa-2x"></i>
+         </li>
+         <!--<i class="fa fa-spinner fa-spin fa-2x"></i>-->
+    </div>
+  </nav>
+</template>

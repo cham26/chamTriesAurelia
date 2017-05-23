@@ -1,0 +1,37 @@
+<template>
+  <require from = "../../converters/date"></require>
+  <button type="button" class="btn btn-primary" click.trigger="callWeatherService('clsYGkQcvC')">Ivano-frankivsk</button>
+  <button type="button" class="btn btn-primary" click.trigger="callWeatherService('cdOhDWyEfC')">Cebu City</button>
+  
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+            <div class="loader" if.bind="gettingData">
+           <i class="fa fa-spinner fa-spin fa-2x" style="font-size:100px"></i>
+         </div>
+ <table class="table table-responsive" if.bind = "!gettingData">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>COMPANY</th>
+        <th>EMAIL</th>
+        <th>ADDRESS</th>
+        <th>PHONE</th>
+        <th>REGISTERED DATE</th>
+        <th>BALANCE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="data of weatherData">
+        <td >${data.index}</td>
+        <td>${data.company}</td>
+        <td><a href.bind="mailToPerson(data.email)">${data.email}</a></td>
+        <td>${data.address}</td>
+        <td>${splittedPhoneNumber(data.phone)}</td>
+        <td>${data.registered | dateFormat}</td>
+        <td>${roundedOffBalance(data.balance)}</td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+ </template>

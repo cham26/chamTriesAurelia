@@ -1,0 +1,13 @@
+<template>
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <require from="./components/navbar/navbar.html"></require>
+  <require from="./components/footer/footer"></require>
+
+  <i class="fa fa-car"></i>
+<i class="fa fa-car" style="font-size:48px;"></i>
+<i class="fa fa-car" style="font-size:60px;color:red;"></i>
+  
+  <navbar navigation.bind="router.navigation"  is-navigating.bind="router.isNavigating"></navbar>
+  <router-view></router-view>
+  <footer></footer>
+</template>
